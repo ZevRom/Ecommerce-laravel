@@ -13,7 +13,7 @@ class Category extends Model
 
     // RELACIÓN 1:M
     public function subcategories(){
-        return $this->hasMany(SubCategoty::class);
+        return $this->hasMany(Subcategory::class);
     }
 
     //RELACIÓN M:M

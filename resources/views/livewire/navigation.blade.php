@@ -2,6 +2,12 @@
     #navigation-menu{
         height: calc(100vh - 4rem);
     }
+
+    .navigation-link:hover .navigation-submenu{
+        display: block !important;
+    }
+
+
 </style>
 
 <header class="bg-indigo-700 sticky top-0">
@@ -85,7 +91,7 @@
             <div class="grid grid-cols-4 h-full relative">
                 <ul class="bg-white">
                     @foreach ($categories as $category)
-                        <li class="text-trueGray-500 hover:bg-green-400 hover:text-white">
+                        <li class="navigation-link text-trueGray-500 hover:bg-green-400 hover:text-white">
                             <a href="" class="py-2 px-4 text-sm flex items-center">
 
                                 <span class="flex justify-center w-9">
@@ -95,8 +101,8 @@
                                 {{$category->name}}
                             </a>
 
-                            <div class="bg-red-500 absolute w-3/4 h-full top-0 right-0">
-
+                            <div class="navigation-submenu bg-gray-100 absolute w-3/4 h-full top-0 right-0 hidden">
+                                <x-navigation-subcategories :category="$category" />
                             </div>
 
                         </li>
@@ -104,7 +110,7 @@
                 </ul>
 
                 <div class="col-span-3 bg-gray-100">
-                    
+                    <x-navigation-subcategories :category="$categories->first()" />
                 </div>
             </div>
         </div>
