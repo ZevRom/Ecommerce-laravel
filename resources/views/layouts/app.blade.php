@@ -36,7 +36,7 @@
         <script>
             const dropdown = () =>{
                 return{
-                    open: true,
+                    open: false,
                     show(){
                         if(this.open){
                             //Se cierra el menu
