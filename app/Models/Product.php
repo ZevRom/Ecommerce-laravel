@@ -36,7 +36,7 @@ class Product extends Model
     }
 
     //RELACIÓN 1:M POLIMÓRFICA
-    public function image(){
+    public function images(){
         return $this->morphMany(Image::class,'imageable');
     }
 

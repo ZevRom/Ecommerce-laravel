@@ -13,8 +13,10 @@
         <!-- Scripts -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.8/glider.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.8/glider.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         
     </head>
     <body class="font-sans antialiased">
