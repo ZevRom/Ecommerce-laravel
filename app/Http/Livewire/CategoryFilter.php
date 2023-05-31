@@ -30,7 +30,7 @@ class CategoryFilter extends Component
             $query->where('id',$this->category->id);
         });
 
-        if($this->subcategoria){
+        if($this->subcategoria){ 
             $productsQuery = $productsQuery->whereHas('subcategory',function(Builder $query){
                 $query->where('name',$this->subcategoria);
             });
