@@ -14,7 +14,10 @@ class CategoryFilter extends Component
 
     public $category, $subcategoria, $marca;
 
-    public function limpiar(){
+    public $view = "list";
+
+    public function limpiar()
+    {
         $this->reset([
             'subcategoria',
             'marca'
@@ -25,20 +28,20 @@ class CategoryFilter extends Component
     {
 
         /*$products = $this->category->products()->where('status',2)->paginate(20);*/
-        
-        $productsQuery = Product::query()->whereHas('subcategory.category', function(Builder $query){
-            $query->where('id',$this->category->id);
+
+        $productsQuery = Product::query()->whereHas('subcategory.category', function (Builder $query) {
+            $query->where('id', $this->category->id);
         });
 
-        if($this->subcategoria){ 
-            $productsQuery = $productsQuery->whereHas('subcategory',function(Builder $query){
-                $query->where('name',$this->subcategoria);
+        if ($this->subcategoria) {
+            $productsQuery = $productsQuery->whereHas('subcategory', function (Builder $query) {
+                $query->where('name', $this->subcategoria);
             });
         }
 
-        if($this->marca){
-            $productsQuery = $productsQuery->whereHas('brand',function(Builder $query){
-                $query->where('name',$this->marca);
+        if ($this->marca) {
+            $productsQuery = $productsQuery->whereHas('brand', function (Builder $query) {
+                $query->where('name', $this->marca);
             });
         }
 
