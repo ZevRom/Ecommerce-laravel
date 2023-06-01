@@ -12,33 +12,42 @@ class Product extends Model
     const BORRADOR = 1;
     const PUBLICADO = 2;
 
-    protected $guarded = ['id','created_at','updated_at']; //CAMPOS PARA DESAHABILITAR
+    protected $guarded = ['id', 'created_at', 'updated_at']; //CAMPOS PARA DESAHABILITAR
 
     //RELACIÓN 1:M
-    public function sizes(){
+    public function sizes()
+    {
         return $this->hasMany(Size::class);
     }
 
 
     //RELACIÓN 1:M INVERSA
-    public function brand(){
+    public function brand()
+    {
         return $this->belongsTo(Brand::class);
     }
 
-    public function subcategory(){
+    public function subcategory()
+    {
         return $this->belongsTo(Subcategory::class);
     }
 
 
     //RELACIÓN M:M
-    public function colors(){
+    public function colors()
+    {
         return $this->belongsToMany(Color::class);
     }
 
     //RELACIÓN 1:M POLIMÓRFICA
-    public function images(){
-        return $this->morphMany(Image::class,'imageable');
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 
-
+    //URL AMIGABLES
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

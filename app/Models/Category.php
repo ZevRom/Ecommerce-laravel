@@ -9,21 +9,24 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillabe=['name','slug','image','icon'];
+    protected $fillabe = ['name', 'slug', 'image', 'icon'];
 
     // RELACIÓN 1:M
-    public function subcategories(){
+    public function subcategories()
+    {
         return $this->hasMany(Subcategory::class);
     }
 
     //RELACIÓN M:M
-    public function brands(){
+    public function brands()
+    {
         return $this->belongsToMany(Brand::class);
     }
 
     //RELACIÓN 1:M A través de
-    public function products(){
-        return $this->hasManyThrough(Product::class,Subcategory::class);
+    public function products()
+    {
+        return $this->hasManyThrough(Product::class, Subcategory::class);
     }
 
     //URL AMIGABLES
